@@ -1,0 +1,45 @@
+﻿<Window x:Class="计算器.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:计算器"
+        mc:Ignorable="d"
+        Title="计算器" Height="545.8" Width="344.4" HorizontalAlignment="Stretch" 
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="20.jpg" TileMode="Tile" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="352" Background="#8AF0F0F0"/>
+        <Label Name="Temp" Content="" HorizontalAlignment="Left" Height="25" Margin="0,26,0,0" VerticalAlignment="Top" Width="334" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom"/>
+        <Label Name="Put" Content="0" HorizontalAlignment="Left" Height="37" Margin="0,51,0,0" VerticalAlignment="Top" Width="334" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontSize="20" FontWeight="Bold"/>
+        <Button Name="Clear" Content="C" HorizontalAlignment="Left" Height="80" Margin="-1,93,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="Clear_Click" BorderBrush="{x:Null}" Background="#3EDDDDDD"/>
+        <Button Name="Percent" Content="%" HorizontalAlignment="Left" Height="80" Margin="169,93,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Background="#3EDDDDDD" Click="Percent_Click"/>
+        <Button Name="Del" Content="DEL" HorizontalAlignment="Left" Height="80" Margin="84,93,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Click="Del_Click" Background="#3EDDDDDD"/>
+        <Button Name="Plus" Content="+" HorizontalAlignment="Left" Height="80" Margin="254,93,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Background="#3EDDDDDD" Click="Plus_Click"/>
+        <Button Name="seven" Content="7" HorizontalAlignment="Left" Height="80" Margin="-1,178,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="seven_Click" BorderBrush="{x:Null}" Background="#3EDDDDDD"/>
+        <Button Name="nine" Content="9" HorizontalAlignment="Left" Height="80" Margin="169,178,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="nine_Click" BorderBrush="{x:Null}" Background="#3EDDDDDD"/>
+        <Button Name="eight" Content="8" HorizontalAlignment="Left" Height="80" Margin="84,178,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="eight_Click" BorderBrush="{x:Null}" Background="#3EDDDDDD"/>
+        <Button Name="Reduce" Content="-" HorizontalAlignment="Left" Height="80" Margin="254,178,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Background="#3EDDDDDD" Click="Reduce_Click"/>
+        <Button Name="four" Content="4" HorizontalAlignment="Left" Height="80" Margin="-1,263,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="four_Click" Background="#3EDDDDDD" BorderBrush="{x:Null}"/>
+        <Button Name="six" Content="6" HorizontalAlignment="Left" Height="80" Margin="169,263,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="six_Click" BorderBrush="{x:Null}" Background="#3EDDDDDD"/>
+        <Button Name="five" Content="5" HorizontalAlignment="Left" Height="80" Margin="84,263,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="five_Click" BorderBrush="{x:Null}" Background="#3EDDDDDD"/>
+        <Button Name="cheng" Content="×" HorizontalAlignment="Left" Height="80" Margin="254,263,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Background="#3EDDDDDD" Click="cheng_Click"/>
+        <Button Name="one" Content="1" HorizontalAlignment="Left" Height="80" Margin="-1,348,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="one_Click" BorderBrush="{x:Null}" Background="#3EDDDDDD"/>
+        <Button Name="three" Content="3" HorizontalAlignment="Left" Height="80" Margin="169,348,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="three_Click" BorderBrush="{x:Null}" Background="#3EDDDDDD"/>
+        <Button Name="two" Content="2" HorizontalAlignment="Left" Height="80" Margin="84,348,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="two_Click" BorderBrush="{x:Null}" Background="#3EDDDDDD"/>
+        <Button Name="chu" Content="÷" HorizontalAlignment="Left" Height="80" Margin="254,348,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Background="#3EDDDDDD" Click="chu_Click"/>
+        <Button Name="ans" Content="ans" HorizontalAlignment="Left" Height="80" Margin="-1,433,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Background="#3EDDDDDD" Click="ans_Click"/>
+        <Button Name="Point" Content="." HorizontalAlignment="Left" Height="80" Margin="169,433,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="Point_Click" BorderBrush="{x:Null}" Background="#3EDDDDDD"/>
+        <Button Name="Zero" Content="0" HorizontalAlignment="Left" Height="80" Margin="84,433,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="Zero_Click" BorderBrush="{x:Null}" Background="#3EDDDDDD"/>
+        <Button Name="result" Content="=" HorizontalAlignment="Left" Height="80" Margin="254,433,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Background="#3EDDDDDD" Click="result_Click"/>
+
+    </Grid>
+</Window>
