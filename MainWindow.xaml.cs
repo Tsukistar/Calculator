@@ -1,16 +1,5 @@
 ﻿using System.Windows;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace 计算器
 {
@@ -26,6 +15,7 @@ namespace 计算器
         //辅助变量
         private enum Operator { none,add,reduce,cheng,chu };//运算类型
         private double Result;                              //保存计算结果
+        private double Ans;
         private Operator Last = Operator.none;              //最后一次的运算符号
         private bool isbutton = false;                        //是否输入过运算符
         private bool isper = false;                         //是否使用百分号
@@ -42,7 +32,7 @@ namespace 计算器
             {
                 Put.Content = "0.";
             }
-            Put.Content += ".";
+            else Put.Content += ".";
         }
 
         private void Zero_Click(object sender, RoutedEventArgs e)
@@ -71,7 +61,11 @@ namespace 计算器
             {
                 Put.Content = "0";
             }
-            if ((string)Put.Content == "0") Put.Content = "1";
+            if ((string)Put.Content == "0")
+            {
+                Put.Content = "1";
+                isbutton = false;
+            }
             else Put.Content += "1";
         }
 
@@ -86,7 +80,11 @@ namespace 计算器
             {
                 Put.Content = "0";
             }
-            if ((string)Put.Content == "0") Put.Content = "2";
+            if ((string)Put.Content == "0")
+            {
+                Put.Content = "2";
+                isbutton = false;
+            }
             else Put.Content += "2";
         }
 
@@ -101,7 +99,11 @@ namespace 计算器
             {
                 Put.Content = "0";
             }
-            if ((string)Put.Content == "0") Put.Content = "3";
+            if ((string)Put.Content == "0")
+            {
+                Put.Content = "3";
+                isbutton = false;
+            }
             else Put.Content += "3";
         }
 
@@ -116,7 +118,11 @@ namespace 计算器
             {
                 Put.Content = "0";
             }
-            if ((string)Put.Content == "0") Put.Content = "4";
+            if ((string)Put.Content == "0")
+            {
+                Put.Content = "4";
+                isbutton = false;
+            }
             else Put.Content += "4";
         }
 
@@ -131,7 +137,11 @@ namespace 计算器
             {
                 Put.Content = "0";
             }
-            if ((string)Put.Content == "0") Put.Content = "5";
+            if ((string)Put.Content == "0")
+            {
+                Put.Content = "5";
+                isbutton = false;
+            }
             else Put.Content += "5";
         }
 
@@ -146,7 +156,11 @@ namespace 计算器
             {
                 Put.Content = "0";
             }
-            if ((string)Put.Content == "0") Put.Content = "6";
+            if ((string)Put.Content == "0")
+            {
+                Put.Content = "6";
+                isbutton = false;
+            }
             else Put.Content += "6";
         }
 
@@ -161,7 +175,11 @@ namespace 计算器
             {
                 Put.Content = "0";
             }
-            if ((string)Put.Content == "0") Put.Content = "7";
+            if ((string)Put.Content == "0")
+            {
+                Put.Content = "7";
+                isbutton = false;
+            }
             else Put.Content += "7";
         }
 
@@ -176,7 +194,11 @@ namespace 计算器
             {
                 Put.Content = "0";
             }
-            if ((string)Put.Content == "0") Put.Content = "8";
+            if ((string)Put.Content == "0")
+            {
+                Put.Content = "8";
+                isbutton = false;
+            }
             else Put.Content += "8";
         }
 
@@ -191,7 +213,11 @@ namespace 计算器
             {
                 Put.Content = "0";
             }
-            if ((string)Put.Content == "0") Put.Content = "9";
+            if ((string)Put.Content == "0")
+            {
+                Put.Content = "9";
+                isbutton = false;
+            }
             else Put.Content += "9";
         }
         //清零操作
@@ -262,21 +288,25 @@ namespace 计算器
             {
                 case Operator.add:
                     Result = Plus_do(Result, (string)Put.Content);
+                    Ans = Result;
                     Last = Operator.add;
                     Put.Content = Result;
                     break;
                 case Operator.reduce:
                     Result=Reduce_do(Result, (string)Put.Content);
+                    Ans = Result;
                     Last = Operator.reduce;
                     Put.Content = Result;
                     break;
                 case Operator.cheng:
                     Result=cheng_do(Result, (string)Put.Content);
+                    Ans = Result;
                     Last = Operator.cheng;
                     Put.Content = Result;
                     break;
                 case Operator.chu:
                     Result=chu_do(Result, (string)Put.Content);
+                    Ans = Result;
                     Last = Operator.chu;
                     Put.Content = Result;
                     break;
@@ -389,7 +419,7 @@ namespace 计算器
 
         private void result_Click(object sender, RoutedEventArgs e)
         {
-            if (!isbutton) return;
+            if (Last==Operator.none) return;
             if (isper)
             {
                 MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
@@ -407,7 +437,7 @@ namespace 计算器
         //ans键
         private void ans_Click(object sender, RoutedEventArgs e)
         {
-            Put.Content = Result;
+            Put.Content = Convert.ToString(Ans);
         }
     }
 }
