@@ -222,7 +222,7 @@ namespace 计算器
         {
             if ((string)Temp.Content != "")
             {
-                MessageBox.Show("请不要在进行其他运算时使用%运算符");
+                MessageBox.Show("请不要在进行其他运算时使用%运算符","提示",MessageBoxButton.OK);
                 return;
             }
             double a=Convert.ToDouble(Put.Content);
@@ -287,12 +287,12 @@ namespace 计算器
         {
             if (isper)
             {
-                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果");
+                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
             else if (Last == Operator.chu && ((string)Put.Content == "0"))
             {
-                MessageBox.Show("除以0是没有意义的，换个数试试？");
+                MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
                 return;
             }
             Temp.Content = (string)Temp.Content + Put.Content + "+";
@@ -313,12 +313,12 @@ namespace 计算器
         {
             if (isper)
             {
-                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果");
+                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
             else if (Last == Operator.chu && ((string)Put.Content == "0"))
             {
-                MessageBox.Show("除以0是没有意义的，换个数试试？");
+                MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
                 return;
             }
             Temp.Content = (string)Temp.Content + Put.Content + "-";
@@ -339,12 +339,12 @@ namespace 计算器
         {
             if(isper)
             {
-                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果");
+                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
             else if (Last == Operator.chu && ((string)Put.Content == "0"))
             {
-                MessageBox.Show("除以0是没有意义的，换个数试试？");
+                MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
                 return;
             }
             Temp.Content = (string)Temp.Content + Put.Content + "×";
@@ -365,12 +365,12 @@ namespace 计算器
         {
             if (isper)
             {
-                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果");
+                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
             else if (Last == Operator.chu && ((string)Put.Content == "0"))
             {
-                MessageBox.Show("除以0是没有意义的，换个数试试？");
+                MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
                 return;
             }
             Temp.Content = (string)Temp.Content + Put.Content + "÷";
@@ -390,8 +390,18 @@ namespace 计算器
         private void result_Click(object sender, RoutedEventArgs e)
         {
             if (!isbutton) return;
+            if (isper)
+            {
+                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
+                return;
+            }
+            else if (Last == Operator.chu && ((string)Put.Content == "0"))
+            {
+                MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
+                return;
+            }
+            else Getresult(Last);
             Temp.Content = "";
-            Getresult(Last);
             Last = Operator.none;
         }
         //ans键
