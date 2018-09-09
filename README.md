@@ -5,6 +5,7 @@ A simple calculator written by myself
 
 v1.1.0
 新功能：加入部分科学计算所需要的运算
+
 修改：界面UI取消菜单栏，修复了一个连续按下运算符键会导致程序崩溃的Bug
 
 v1.0.2
