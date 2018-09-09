@@ -3,9 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:计算器"
         mc:Ignorable="d"
-        Title="计算器" Height="545.8" Width="344.4" HorizontalAlignment="Stretch" 
+        Title="计算器" Height="518" Width="344" HorizontalAlignment="Stretch" 
         WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Grid.Background>
@@ -17,33 +16,38 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Menu HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="334" Background="#A5F0F0F0">
-            <MenuItem>
-
-            </MenuItem>
-        </Menu>
-        <Label Name="Temp" Content="" HorizontalAlignment="Left" Height="25" Margin="0,26,0,0" VerticalAlignment="Top" Width="334" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom"/>
-        <Label Name="Put" Content="0" HorizontalAlignment="Left" Height="37" Margin="0,51,0,0" VerticalAlignment="Top" Width="334" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontSize="20" FontWeight="Bold"/>
-        <Button Name="Clear" Content="C" HorizontalAlignment="Left" Height="80" Margin="-1,93,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="Clear_Click" BorderBrush="{x:Null}" Background="#4FFFFFFF"/>
-        <Button Name="Percent" Content="%" HorizontalAlignment="Left" Height="80" Margin="169,93,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Background="#4FFFFFFF" Click="Percent_Click"/>
-        <Button Name="Del" Content="DEL" HorizontalAlignment="Left" Height="80" Margin="84,93,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Click="Del_Click" Background="#4FFFFFFF"/>
-        <Button Name="Plus" Content="+" HorizontalAlignment="Left" Height="80" Margin="254,93,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Background="#4FFFFFFF" Click="Plus_Click"/>
-        <Button Name="seven" Content="7" HorizontalAlignment="Left" Height="80" Margin="-1,178,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="seven_Click" BorderBrush="{x:Null}" Background="#4FFFFFFF"/>
-        <Button Name="nine" Content="9" HorizontalAlignment="Left" Height="80" Margin="169,178,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="nine_Click" BorderBrush="{x:Null}" Background="#4FFFFFFF"/>
-        <Button Name="eight" Content="8" HorizontalAlignment="Left" Height="80" Margin="84,178,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="eight_Click" BorderBrush="{x:Null}" Background="#4FFFFFFF"/>
-        <Button Name="Reduce" Content="-" HorizontalAlignment="Left" Height="80" Margin="254,178,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Background="#4FFFFFFF" Click="Reduce_Click"/>
-        <Button Name="four" Content="4" HorizontalAlignment="Left" Height="80" Margin="-1,263,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="four_Click" Background="#4FFFFFFF" BorderBrush="{x:Null}"/>
-        <Button Name="six" Content="6" HorizontalAlignment="Left" Height="80" Margin="169,263,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="six_Click" BorderBrush="{x:Null}" Background="#4FFFFFFF"/>
-        <Button Name="five" Content="5" HorizontalAlignment="Left" Height="80" Margin="84,263,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="five_Click" BorderBrush="{x:Null}" Background="#4FFFFFFF"/>
-        <Button Name="cheng" Content="×" HorizontalAlignment="Left" Height="80" Margin="254,263,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Background="#4FFFFFFF" Click="cheng_Click"/>
-        <Button Name="one" Content="1" HorizontalAlignment="Left" Height="80" Margin="-1,348,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="one_Click" BorderBrush="{x:Null}" Background="#4FFFFFFF"/>
-        <Button Name="three" Content="3" HorizontalAlignment="Left" Height="80" Margin="169,348,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="three_Click" BorderBrush="{x:Null}" Background="#4FFFFFFF"/>
-        <Button Name="two" Content="2" HorizontalAlignment="Left" Height="80" Margin="84,348,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="two_Click" BorderBrush="{x:Null}" Background="#4FFFFFFF"/>
-        <Button Name="chu" Content="÷" HorizontalAlignment="Left" Height="80" Margin="254,348,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Background="#4FFFFFFF" Click="chu_Click"/>
-        <Button Name="ans" Content="ans" HorizontalAlignment="Left" Height="80" Margin="-1,433,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Background="#4FFFFFFF" Click="ans_Click"/>
-        <Button Name="Point" Content="." HorizontalAlignment="Left" Height="80" Margin="169,433,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="Point_Click" BorderBrush="{x:Null}" Background="#4FFFFFFF"/>
-        <Button Name="Zero" Content="0" HorizontalAlignment="Left" Height="80" Margin="84,433,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" Click="Zero_Click" BorderBrush="{x:Null}" Background="#4FFFFFFF"/>
-        <Button Name="result" Content="=" HorizontalAlignment="Left" Height="80" Margin="254,433,0,0" VerticalAlignment="Top" Width="80" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Background="#4FFFFFFF" Click="result_Click"/>
+        <Label Name="Temp" Content="" HorizontalAlignment="Left" Height="25" Margin="0,10,0,0" VerticalAlignment="Top" Width="328" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom"/>
+        <Label Name="Put" Content="0" HorizontalAlignment="Left" Height="37" Margin="4,40,0,0" VerticalAlignment="Top" Width="326" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontSize="20" FontWeight="Bold"/>
+        <Button x:Name="Clear" Content="C" HorizontalAlignment="Left" Height="62" Margin="67,152,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" Click="Clear_Click" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF"/>
+        <Button x:Name="Percent" Content="%" HorizontalAlignment="Left" Height="62" Margin="67,420,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="Percent_Click"/>
+        <Button x:Name="Del" Content="DEL" HorizontalAlignment="Left" Height="62" Margin="134,152,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Click="Del_Click" Background="#4FFFFFFF"/>
+        <Button x:Name="seven" Content="7" HorizontalAlignment="Left" Height="62" Margin="67,219,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" Click="seven_Click" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF"/>
+        <Button x:Name="nine" Content="9" HorizontalAlignment="Left" Height="62" Margin="201,220,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" Click="nine_Click" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF"/>
+        <Button x:Name="eight" Content="8" HorizontalAlignment="Left" Height="62" Margin="134,219,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" Click="eight_Click" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF"/>
+        <Button x:Name="Reduce" Content="-" HorizontalAlignment="Left" Height="62" Margin="268,219,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="Reduce_Click"/>
+        <Button x:Name="four" Content="4" HorizontalAlignment="Left" Height="62" Margin="69,286,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" Click="four_Click" Background="#4FFFFFFF" BorderBrush="#B2FFFCFC"/>
+        <Button x:Name="six" Content="6" HorizontalAlignment="Left" Height="62" Margin="201,287,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" Click="six_Click" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF"/>
+        <Button x:Name="five" Content="5" HorizontalAlignment="Left" Height="62" Margin="134,286,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" Click="five_Click" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF"/>
+        <Button x:Name="cheng" Content="×" HorizontalAlignment="Left" Height="62" Margin="268,286,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="cheng_Click"/>
+        <Button x:Name="one" Content="1" HorizontalAlignment="Left" Height="62" Margin="67,353,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" Click="one_Click" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF"/>
+        <Button x:Name="three" Content="3" HorizontalAlignment="Left" Height="62" Margin="201,353,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" Click="three_Click" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF"/>
+        <Button x:Name="two" Content="2" HorizontalAlignment="Left" Height="62" Margin="134,353,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" Click="two_Click" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF"/>
+        <Button x:Name="chu" Content="÷" HorizontalAlignment="Left" Height="62" Margin="268,353,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="chu_Click"/>
+        <Button x:Name="ans" Content="ans" HorizontalAlignment="Left" Height="62" Margin="201,153,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="ans_Click"/>
+        <Button x:Name="Point" Content="." HorizontalAlignment="Left" Height="62" Margin="201,420,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" Click="Point_Click" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF"/>
+        <Button x:Name="Zero" Content="0" HorizontalAlignment="Left" Height="62" Margin="134,420,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" Click="Zero_Click" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF"/>
+        <Button x:Name="result" Content="=" HorizontalAlignment="Left" Height="62" Margin="268,420,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="result_Click"/>
+        <Button x:Name="Add" Content="+" HorizontalAlignment="Left" Height="62" Margin="268,152,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="Plus_Click"/>
+        <Button x:Name="Mod" Content="mod" HorizontalAlignment="Left" Height="62" Margin="268,85,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="Mod_Click"/>
+        <Button x:Name="tan" Content="tan" HorizontalAlignment="Left" Height="62" Margin="0,420,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="tan_Click"/>
+        <Button x:Name="xciy" Content="x^y" HorizontalAlignment="Left" Height="62" Margin="2,85,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="xciy_Click"/>
+        <Button x:Name="sin" Content="sin" HorizontalAlignment="Left" Height="62" Margin="2,286,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="sin_Click"/>
+        <Button x:Name="cos" Content="cos" HorizontalAlignment="Left" Height="62" Margin="2,353,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="cos_Click"/>
+        <Button x:Name="Sqrt" Content="√" HorizontalAlignment="Left" Height="62" Margin="201,85,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="Sqrt_Click"/>
+        <Button x:Name="xxx" Content="x²" HorizontalAlignment="Left" Height="62" Margin="67,85,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="xxx_Click"/>
+        <Button x:Name="Log" Content="ln" HorizontalAlignment="Left" Height="62" Margin="134,85,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="Log_Click"/>
+        <Button x:Name="pi" Content="π" HorizontalAlignment="Left" Height="62" Margin="0,219,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" Click="pi_Click" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF"/>
+        <Button x:Name="oneton" Content="n!" HorizontalAlignment="Left" Height="62" Margin="0,152,0,0" VerticalAlignment="Top" Width="62" FontSize="20" FontWeight="Bold" BorderBrush="#B2FFFCFC" Background="#4FFFFFFF" Click="oneton_Click" />
 
     </Grid>
 </Window>

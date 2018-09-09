@@ -13,11 +13,12 @@ namespace 计算器
             InitializeComponent();
         }
         //辅助变量
-        private enum Operator { none,add,reduce,cheng,chu };//运算类型
+        private enum Operator { none,add,reduce,cheng,chu,Mod,cifang };//运算类型
         private double Result;                              //保存计算结果
         private double Ans;
         private Operator Last = Operator.none;              //最后一次的运算符号
-        private bool isbutton = false;                        //是否输入过运算符
+        private bool islastoperator = false;                //最后的输入是否为运算符
+        private bool isbutton = false;                      //是否输入过运算符
         private bool isper = false;                         //是否使用百分号
         private bool isdengyu = false;                      //是否使用等于号
         //输入
@@ -33,6 +34,7 @@ namespace 计算器
                 Put.Content = "0.";
             }
             else Put.Content += ".";
+            islastoperator = false;
         }
 
         private void Zero_Click(object sender, RoutedEventArgs e)
@@ -48,6 +50,7 @@ namespace 计算器
             }
             if ((string)Put.Content == "0") return;
             else Put.Content += "0";
+            islastoperator = false;
         }
 
         private void one_Click(object sender, RoutedEventArgs e)
@@ -67,6 +70,7 @@ namespace 计算器
                 isbutton = false;
             }
             else Put.Content += "1";
+            islastoperator = false;
         }
 
         private void two_Click(object sender, RoutedEventArgs e)
@@ -86,6 +90,7 @@ namespace 计算器
                 isbutton = false;
             }
             else Put.Content += "2";
+            islastoperator = false;
         }
 
         private void three_Click(object sender, RoutedEventArgs e)
@@ -105,6 +110,7 @@ namespace 计算器
                 isbutton = false;
             }
             else Put.Content += "3";
+            islastoperator = false;
         }
 
         private void four_Click(object sender, RoutedEventArgs e)
@@ -124,6 +130,7 @@ namespace 计算器
                 isbutton = false;
             }
             else Put.Content += "4";
+            islastoperator = false;
         }
 
         private void five_Click(object sender, RoutedEventArgs e)
@@ -143,6 +150,7 @@ namespace 计算器
                 isbutton = false;
             }
             else Put.Content += "5";
+            islastoperator = false;
         }
 
         private void six_Click(object sender, RoutedEventArgs e)
@@ -162,6 +170,7 @@ namespace 计算器
                 isbutton = false;
             }
             else Put.Content += "6";
+            islastoperator = false;
         }
 
         private void seven_Click(object sender, RoutedEventArgs e)
@@ -181,6 +190,7 @@ namespace 计算器
                 isbutton = false;
             }
             else Put.Content += "7";
+            islastoperator = false;
         }
 
         private void eight_Click(object sender, RoutedEventArgs e)
@@ -200,6 +210,7 @@ namespace 计算器
                 isbutton = false;
             }
             else Put.Content += "8";
+            islastoperator = false;
         }
 
         private void nine_Click(object sender, RoutedEventArgs e)
@@ -219,8 +230,11 @@ namespace 计算器
                 isbutton = false;
             }
             else Put.Content += "9";
+            islastoperator = false;
         }
-        //清零操作
+        /// <summary>
+        /// 其他运算符
+        /// </summary>
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             Temp.Content = "";
@@ -228,8 +242,9 @@ namespace 计算器
             isper = false;
             isbutton = false;
             isdengyu = false;
-        }
-        //删除操作
+            islastoperator = false;
+        }      //清零操作
+
         private void Del_Click(object sender, RoutedEventArgs e)
         {
             if (isdengyu) return;
@@ -242,15 +257,16 @@ namespace 计算器
                 if (temp == "") temp = "0";
                 Put.Content = temp;
             }
-        }
-        //求百分数
-        private void Percent_Click(object sender, RoutedEventArgs e)
+        }        //删除操作
+
+        private void Percent_Click(object sender, RoutedEventArgs e)       //求百分数
         {
             if ((string)Temp.Content != "")
             {
-                MessageBox.Show("请不要在进行其他运算时使用%运算符","提示",MessageBoxButton.OK);
+                MessageBox.Show("请不要在进行其他运算时使用%运算符", "提示", MessageBoxButton.OK);
                 return;
             }
+            else if (isper) return;
             double a=Convert.ToDouble(Put.Content);
             a = a * 100;
             Put.Content = Convert.ToString(a) + "%";
@@ -310,6 +326,18 @@ namespace 计算器
                     Last = Operator.chu;
                     Put.Content = Result;
                     break;
+                case Operator.Mod:
+                    Result = Math.IEEERemainder(Result, Convert.ToDouble(Put.Content));
+                    Ans = Result;
+                    Last = Operator.Mod;
+                    Put.Content = Result;
+                    break;
+                case Operator.cifang:
+                    Result = Math.Pow(Result, Convert.ToDouble(Put.Content));
+                    Ans = Result;
+                    Last = Operator.cifang;
+                    Put.Content = Result;
+                    break;
             }
         }
         //运算符按钮
@@ -320,6 +348,7 @@ namespace 计算器
                 MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
+            else if (islastoperator) return;
             else if (Last == Operator.chu && ((string)Put.Content == "0"))
             {
                 MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
@@ -337,6 +366,7 @@ namespace 计算器
                 Last = Operator.add;
             }
             isbutton = true;
+            islastoperator = true;
         }
 
         private void Reduce_Click(object sender, RoutedEventArgs e)
@@ -346,6 +376,7 @@ namespace 计算器
                 MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
+            else if (islastoperator) return;
             else if (Last == Operator.chu && ((string)Put.Content == "0"))
             {
                 MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
@@ -363,6 +394,7 @@ namespace 计算器
                 Last = Operator.reduce;
             }
             isbutton = true;
+            islastoperator = true;
         }
 
         private void cheng_Click(object sender, RoutedEventArgs e)
@@ -372,6 +404,7 @@ namespace 计算器
                 MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
+            else if (islastoperator) return;
             else if (Last == Operator.chu && ((string)Put.Content == "0"))
             {
                 MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
@@ -389,6 +422,7 @@ namespace 计算器
                 Last = Operator.cheng;
             }
             isbutton = true;
+            islastoperator = true;
         }
 
         private void chu_Click(object sender, RoutedEventArgs e)
@@ -398,6 +432,7 @@ namespace 计算器
                 MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
+            else if (islastoperator) return;
             else if (Last == Operator.chu && ((string)Put.Content == "0"))
             {
                 MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
@@ -415,6 +450,7 @@ namespace 计算器
                 Last = Operator.chu;
             }
             isbutton = true;
+            islastoperator = true;
         }
 
         private void result_Click(object sender, RoutedEventArgs e)
@@ -425,6 +461,10 @@ namespace 计算器
                 MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
+            else if (islastoperator)
+            {
+                MessageBox.Show("请不要在输入运算符后使用 = ,已为你进行前面的运算", "提示", MessageBoxButton.OK);
+            }
             else if (Last == Operator.chu && ((string)Put.Content == "0"))
             {
                 MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
@@ -433,11 +473,145 @@ namespace 计算器
             else Getresult(Last);
             Temp.Content = "";
             Last = Operator.none;
+            islastoperator = false;
         }
         //ans键
         private void ans_Click(object sender, RoutedEventArgs e)
         {
             Put.Content = Convert.ToString(Ans);
+        }
+
+        private void Mod_Click(object sender, RoutedEventArgs e)
+        {
+            if (isper)
+            {
+                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
+                return;
+            }
+            else if (islastoperator) return;
+            else if (Last == Operator.chu && ((string)Put.Content == "0"))
+            {
+                MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
+                return;
+            }
+            Temp.Content = (string)Temp.Content + Put.Content + "×";
+            if (Last != Operator.none)
+            {
+                Getresult(Last);
+                Last = Operator.Mod;
+            }
+            else
+            {
+                Result = Convert.ToDouble(Put.Content);
+                Last = Operator.Mod;
+            }
+            isbutton = true;
+            islastoperator = true;
+        }
+
+        private void xxx_Click(object sender, RoutedEventArgs e)
+        {
+            Temp.Content = Result + "²";
+            Result = Result * Result;
+            Put.Content = Result;
+        }
+
+        private void tan_Click(object sender, RoutedEventArgs e)
+        {
+            Result = Convert.ToDouble(Put.Content);
+            Temp.Content = "tan" + Convert.ToString(Result);
+            Result = Math.Tan(Result);
+            Put.Content = Result;
+        }
+
+        private void oneton_Click(object sender, RoutedEventArgs e)
+        {
+            Result = Convert.ToInt16(Put.Content);
+            Temp.Content = Result + "!";
+            int a = Convert.ToInt16(Put.Content);
+            Result = 1;
+            for (int i = 1; i <= a; i++) Result = Result * i;
+            Put.Content = Result;
+        }
+
+        private void cos_Click(object sender, RoutedEventArgs e)
+        {
+            Result = Convert.ToDouble(Put.Content);
+            Temp.Content = "cos" + Convert.ToString(Result);
+            Result = Math.Cos(Result);
+            Put.Content = Result;
+        }
+
+        private void sin_Click(object sender, RoutedEventArgs e)
+        {
+            Result = Convert.ToDouble(Put.Content);
+            Temp.Content = "sin" + Convert.ToString(Result);
+            Result = Math.Sin(Result);
+            Put.Content = Result;
+        }
+
+        private void xciy_Click(object sender, RoutedEventArgs e)
+        {
+            if (isper)
+            {
+                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
+                return;
+            }
+            else if (islastoperator) return;
+            else if (Last == Operator.chu && ((string)Put.Content == "0"))
+            {
+                MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
+                return;
+            }
+            Temp.Content = (string)Temp.Content + Put.Content + "^";
+            if (Last != Operator.none)
+            {
+                Getresult(Last);
+                Last = Operator.cifang;
+            }
+            else
+            {
+                Result = Convert.ToDouble(Put.Content);
+                Last = Operator.cifang;
+            }
+            isbutton = true;
+            islastoperator = true;
+        }
+
+        private void Log_Click(object sender, RoutedEventArgs e)
+        {
+            Result = Convert.ToDouble(Put.Content);
+            Temp.Content = "ln" + Convert.ToString(Result);
+            Result = Math.Log(Result);
+            Put.Content = Result;
+        }
+
+        private void Sqrt_Click(object sender, RoutedEventArgs e)
+        {
+            Result = Convert.ToDouble(Put.Content);
+            Temp.Content = "√" + Convert.ToString(Result);
+            Result = Math.Sqrt(Result);
+            Put.Content = Result;
+        }
+
+        private void pi_Click(object sender, RoutedEventArgs e)
+        {
+            if (isper)
+            {
+                Put.Content = "0";
+                isper = false;
+            }
+            else if (isbutton)
+            {
+                Put.Content = "0";
+            }
+            if ((string)Put.Content == "0")
+            {
+                Put.Content = "3.1415926535897932384626433832795";
+                isbutton = false;
+            }
+            else Put.Content += "3.1415926535897932384626433832795";
+            islastoperator = false;
         }
     }
 }
