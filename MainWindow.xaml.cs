@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System;
-
 namespace 计算器
 {
     /// <summary>
@@ -21,24 +20,26 @@ namespace 计算器
         private bool isbutton = false;                      //是否输入过运算符
         private bool isper = false;                         //是否使用百分号
         private bool isdengyu = false;                      //是否使用等于号
+        private bool iszeropoint = false;                   //是否为0.
         //输入
         private void Point_Click(object sender, RoutedEventArgs e)
         {
             if (isper)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isper = false;
             }
             else if (isbutton)
             {
-                Put.Content = "0.";
+                Put.Text = "0.";
             }
             else if (isdengyu)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isdengyu = false;
             }
-            else Put.Content += ".";
+            else Put.Text += ".";
+            if (Put.Text == "0.") iszeropoint = true;
             islastoperator = false;
         }
 
@@ -46,26 +47,26 @@ namespace 计算器
         {
             if (isper)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isper = false;
             }
-            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            else if (iszeropoint)
             {
-                Put.Content += "0";
+                Put.Text += "0";
                 islastoperator = false;
                 return;
             }
             else if (isbutton)
             {
-                Put.Content = "0";
+                Put.Text = "0";
             }
             else if (isdengyu)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isdengyu = false;
             }
-            if ((string)Put.Content == "0") return;
-            else Put.Content += "0";
+            if ((string)Put.Text == "0") return;
+            else Put.Text += "0";
             islastoperator = false;
         }
 
@@ -73,36 +74,36 @@ namespace 计算器
         {
             if (isper)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isper = false;
             }
-            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length, ".", 0, 1) == 0)
+            else if (string.Compare((string)Put.Text, ((string)Put.Text).Length, ".", 0, 1) == 0)
             {
-                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                if (string.Compare((string)Put.Text, ((string)Put.Text).Length - 2, "0.", 0, 2) == 0)
                 {
-                    Put.Content += "1";
+                    Put.Text += "1";
                     islastoperator = false;
                     return;
                 }
-                Put.Content += "1";
+                Put.Text += "1";
                 islastoperator = false;
                 return;
             }
             else if (isbutton)
             {
-                Put.Content = "0";
+                Put.Text = "0";
             }
             else if (isdengyu)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isdengyu = false;
             }
-            if ((string)Put.Content == "0")
+            if ((string)Put.Text == "0")
             {
-                Put.Content = "1";
+                Put.Text = "1";
                 isbutton = false;
             }
-            else Put.Content += "1";
+            else Put.Text += "1";
             islastoperator = false;
         }
 
@@ -110,36 +111,30 @@ namespace 计算器
         {
             if (isper)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isper = false;
             }
-            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            else if (iszeropoint)
             {
-                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
-                {
-                    Put.Content += "2";
-                    islastoperator = false;
-                    return;
-                }
-                Put.Content += "2";
+                Put.Text += "2";
                 islastoperator = false;
                 return;
             }
             else if (isbutton)
             {
-                Put.Content = "0";
+                Put.Text = "0";
             }
             else if (isdengyu)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isdengyu = false;
             }
-            if ((string)Put.Content == "0")
+            if ((string)Put.Text == "0")
             {
-                Put.Content = "2";
+                Put.Text = "2";
                 isbutton = false;
             }
-            else Put.Content += "2";
+            else Put.Text += "2";
             islastoperator = false;
         }
 
@@ -147,36 +142,36 @@ namespace 计算器
         {
             if (isper)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isper = false;
             }
-            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            else if (iszeropoint)
             {
-                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                if (string.Compare((string)Put.Text, ((string)Put.Text).Length - 2, "0.", 0, 2) == 0)
                 {
-                    Put.Content += "3";
+                    Put.Text += "3";
                     islastoperator = false;
                     return;
                 }
-                Put.Content += "3";
+                Put.Text += "3";
                 islastoperator = false;
                 return;
             }
             else if (isbutton)
             {
-                Put.Content = "0";
+                Put.Text = "0";
             }
             else if (isdengyu)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isdengyu = false;
             }
-            if ((string)Put.Content == "0")
+            if ((string)Put.Text == "0")
             {
-                Put.Content = "3";
+                Put.Text = "3";
                 isbutton = false;
             }
-            else Put.Content += "3";
+            else Put.Text += "3";
             islastoperator = false;
         }
 
@@ -184,36 +179,36 @@ namespace 计算器
         {
             if (isper)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isper = false;
             }
-            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            else if (iszeropoint)
             {
-                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                if (string.Compare((string)Put.Text, ((string)Put.Text).Length - 2, "0.", 0, 2) == 0)
                 {
-                    Put.Content += "4";
+                    Put.Text += "4";
                     islastoperator = false;
                     return;
                 }
-                Put.Content += "4";
+                Put.Text += "4";
                 islastoperator = false;
                 return;
             }
             else if (isbutton)
             {
-                Put.Content = "0";
+                Put.Text = "0";
             }
             else if (isdengyu)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isdengyu = false;
             }
-            if ((string)Put.Content == "0")
+            if ((string)Put.Text == "0")
             {
-                Put.Content = "4";
+                Put.Text = "4";
                 isbutton = false;
             }
-            else Put.Content += "4";
+            else Put.Text += "4";
             islastoperator = false;
         }
 
@@ -221,36 +216,36 @@ namespace 计算器
         {
             if (isper)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isper = false;
             }
-            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            else if (iszeropoint)
             {
-                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                if (string.Compare((string)Put.Text, ((string)Put.Text).Length - 2, "0.", 0, 2) == 0)
                 {
-                    Put.Content += "5";
+                    Put.Text += "5";
                     islastoperator = false;
                     return;
                 }
-                Put.Content += "5";
+                Put.Text += "5";
                 islastoperator = false;
                 return;
             }
             else if (isbutton)
             {
-                Put.Content = "0";
+                Put.Text = "0";
             }
             else if (isdengyu)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isdengyu = false;
             }
-            if ((string)Put.Content == "0")
+            if ((string)Put.Text == "0")
             {
-                Put.Content = "5";
+                Put.Text = "5";
                 isbutton = false;
             }
-            else Put.Content += "5";
+            else Put.Text += "5";
             islastoperator = false;
         }
 
@@ -258,36 +253,36 @@ namespace 计算器
         {
             if (isper)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isper = false;
             }
-            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            else if (iszeropoint)
             {
-                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                if (string.Compare((string)Put.Text, ((string)Put.Text).Length - 2, "0.", 0, 2) == 0)
                 {
-                    Put.Content += "6";
+                    Put.Text += "6";
                     islastoperator = false;
                     return;
                 }
-                Put.Content += "6";
+                Put.Text += "6";
                 islastoperator = false;
                 return;
             }
             else if (isbutton)
             {
-                Put.Content = "0";
+                Put.Text = "0";
             }
             else if (isdengyu)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isdengyu = false;
             }
-            if ((string)Put.Content == "0")
+            if ((string)Put.Text == "0")
             {
-                Put.Content = "6";
+                Put.Text = "6";
                 isbutton = false;
             }
-            else Put.Content += "6";
+            else Put.Text += "6";
             islastoperator = false;
         }
 
@@ -295,36 +290,36 @@ namespace 计算器
         {
             if (isper)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isper = false;
             }
-            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            else if (iszeropoint)
             {
-                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                if (string.Compare((string)Put.Text, ((string)Put.Text).Length - 2, "0.", 0, 2) == 0)
                 {
-                    Put.Content += "7";
+                    Put.Text += "7";
                     islastoperator = false;
                     return;
                 }
-                Put.Content += "7";
+                Put.Text += "7";
                 islastoperator = false;
                 return;
             }
             else if (isbutton)
             {
-                Put.Content = "0";
+                Put.Text = "0";
             }
             else if (isdengyu)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isdengyu = false;
             }
-            if ((string)Put.Content == "0")
+            if ((string)Put.Text == "0")
             {
-                Put.Content = "7";
+                Put.Text = "7";
                 isbutton = false;
             }
-            else Put.Content += "7";
+            else Put.Text += "7";
             islastoperator = false;
         }
 
@@ -332,36 +327,36 @@ namespace 计算器
         {
             if (isper)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isper = false;
             }
-            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            else if (iszeropoint)
             {
-                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                if (string.Compare((string)Put.Text, ((string)Put.Text).Length - 2, "0.", 0, 2) == 0)
                 {
-                    Put.Content += "8";
+                    Put.Text += "8";
                     islastoperator = false;
                     return;
                 }
-                Put.Content += "8";
+                Put.Text += "8";
                 islastoperator = false;
                 return;
             }
             else if (isbutton)
             {
-                Put.Content = "0";
+                Put.Text = "0";
             }
             else if (isdengyu)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isdengyu = false;
             }
-            if ((string)Put.Content == "0")
+            if ((string)Put.Text == "0")
             {
-                Put.Content = "8";
+                Put.Text = "8";
                 isbutton = false;
             }
-            else Put.Content += "8";
+            else Put.Text += "8";
             islastoperator = false;
         }
 
@@ -369,36 +364,36 @@ namespace 计算器
         {
             if (isper)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isper = false;
             }
-            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            else if (iszeropoint)
             {
-                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                if (string.Compare((string)Put.Text, ((string)Put.Text).Length - 2, "0.", 0, 2) == 0)
                 {
-                    Put.Content += "9";
+                    Put.Text += "9";
                     islastoperator = false;
                     return;
                 }
-                Put.Content += "9";
+                Put.Text += "9";
                 islastoperator = false;
                 return;
             }
             else if (isbutton)
             {
-                Put.Content = "0";
+                Put.Text = "0";
             }
             else if (isdengyu)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isdengyu=false;
             }
-            if ((string)Put.Content == "0")
+            if ((string)Put.Text == "0")
             {
-                Put.Content = "9";
+                Put.Text = "9";
                 isbutton = false;
             }
-            else Put.Content += "9";
+            else Put.Text += "9";
             islastoperator = false;
         }
         /// <summary>
@@ -409,7 +404,7 @@ namespace 计算器
             Ans = Result;
             Result = 0;
             Temp.Content = "";
-            Put.Content = "0";
+            Put.Text = "0";
             isper = false;
             isbutton = false;
             isdengyu = false;
@@ -420,13 +415,13 @@ namespace 计算器
         {
             if (isper) isper = false;
             else if (isdengyu) return;
-            if ((string)Put.Content == "0") return;
+            if ((string)Put.Text == "0") return;
             else
             {
-                string temp = (string)Put.Content;
+                string temp = (string)Put.Text;
                 temp=temp.Remove(temp.Length - 1);
                 if (temp == "") temp = "0";
-                Put.Content = temp;
+                Put.Text = temp;
             }
         }        //删除操作
 
@@ -438,10 +433,11 @@ namespace 计算器
                 return;
             }
             else if (isper) return;
-            double a=Convert.ToDouble(Put.Content);
+            double a=Convert.ToDouble(Put.Text);
             a = a * 100;
-            Put.Content = Convert.ToString(a) + "%";
+            Put.Text = Convert.ToString(a) + "%";
             isper = true;
+            iszeropoint = false;
             return;
         }
         //运算函数
@@ -474,41 +470,41 @@ namespace 计算器
             switch (Last)
             {
                 case Operator.add:
-                    Result = Plus_do(Result, (string)Put.Content);
+                    Result = Plus_do(Result, (string)Put.Text);
                     Ans = Result;
                     Last = Operator.add;
-                    Put.Content = Result;
+                    Put.Text = Convert.ToString(Result);
                     break;
                 case Operator.reduce:
-                    Result=Reduce_do(Result, (string)Put.Content);
+                    Result=Reduce_do(Result, (string)Put.Text);
                     Ans = Result;
                     Last = Operator.reduce;
-                    Put.Content = Result;
+                    Put.Text = Convert.ToString(Result);
                     break;
                 case Operator.cheng:
-                    Result=cheng_do(Result, (string)Put.Content);
+                    Result=cheng_do(Result, (string)Put.Text);
                     Ans = Result;
                     Last = Operator.cheng;
-                    Put.Content = Result;
+                    Put.Text = Convert.ToString(Result);
                     break;
                 case Operator.chu:
-                    Result=chu_do(Result, (string)Put.Content);
+                    Result=chu_do(Result, (string)Put.Text);
                     Ans = Result;
                     Last = Operator.chu;
-                    Put.Content = Result;
+                    Put.Text = Convert.ToString(Result);
                     break;
                 case Operator.Mod:
-                    Result = Math.IEEERemainder(Result, Convert.ToDouble(Put.Content));
-                    if (Result < 0) Result += Convert.ToDouble(Put.Content);
+                    Result = Math.IEEERemainder(Result, Convert.ToDouble(Put.Text));
+                    if (Result < 0) Result += Convert.ToDouble(Put.Text);
                     Ans = Result;
                     Last = Operator.Mod;
-                    Put.Content = Result;
+                    Put.Text = Convert.ToString(Result);
                     break;
                 case Operator.cifang:
-                    Result = Math.Pow(Result, Convert.ToDouble(Put.Content));
+                    Result = Math.Pow(Result, Convert.ToDouble(Put.Text));
                     Ans = Result;
                     Last = Operator.cifang;
-                    Put.Content = Result;
+                    Put.Text = Convert.ToString(Result);
                     break;
             }
         }
@@ -521,12 +517,12 @@ namespace 计算器
                 return;
             }
             else if (islastoperator) return;
-            else if (Last == Operator.chu && ((string)Put.Content == "0"))
+            else if (Last == Operator.chu && ((string)Put.Text == "0"))
             {
                 MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
                 return;
             }
-            Temp.Content = (string)Temp.Content + Put.Content + "+";
+            Temp.Content = (string)Temp.Content + Put.Text + "+";
             if (Last != Operator.none)
             {
                 Getresult(Last);
@@ -534,11 +530,12 @@ namespace 计算器
             }
             else
             {
-                Result = Convert.ToDouble(Put.Content);
+                Result = Convert.ToDouble(Put.Text);
                 Last = Operator.add;
             }
             isbutton = true;
             islastoperator = true;
+            iszeropoint = false;
         }
 
         private void Reduce_Click(object sender, RoutedEventArgs e)
@@ -549,12 +546,12 @@ namespace 计算器
                 return;
             }
             else if (islastoperator) return;
-            else if (Last == Operator.chu && ((string)Put.Content == "0"))
+            else if (Last == Operator.chu && ((string)Put.Text == "0"))
             {
                 MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
                 return;
             }
-            Temp.Content = (string)Temp.Content + Put.Content + "-";
+            Temp.Content = (string)Temp.Content + Put.Text + "-";
             if (Last != Operator.none)
             {
                 Getresult(Last);
@@ -562,11 +559,12 @@ namespace 计算器
             }
             else
             {
-                Result = Convert.ToDouble(Put.Content);
+                Result = Convert.ToDouble(Put.Text);
                 Last = Operator.reduce;
             }
             isbutton = true;
             islastoperator = true;
+            iszeropoint = false;
         }
 
         private void cheng_Click(object sender, RoutedEventArgs e)
@@ -577,12 +575,12 @@ namespace 计算器
                 return;
             }
             else if (islastoperator) return;
-            else if (Last == Operator.chu && ((string)Put.Content == "0"))
+            else if (Last == Operator.chu && ((string)Put.Text == "0"))
             {
                 MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
                 return;
             }
-            Temp.Content = (string)Temp.Content + Put.Content + "×";
+            Temp.Content = (string)Temp.Content + Put.Text + "×";
             if (Last != Operator.none)
             {
                 Getresult(Last);
@@ -590,11 +588,12 @@ namespace 计算器
             }
             else
             {
-                Result = Convert.ToDouble(Put.Content);
+                Result = Convert.ToDouble(Put.Text);
                 Last = Operator.cheng;
             }
             isbutton = true;
             islastoperator = true;
+            iszeropoint = false;
         }
 
         private void chu_Click(object sender, RoutedEventArgs e)
@@ -605,12 +604,12 @@ namespace 计算器
                 return;
             }
             else if (islastoperator) return;
-            else if (Last == Operator.chu && ((string)Put.Content == "0"))
+            else if (Last == Operator.chu && ((string)Put.Text == "0"))
             {
                 MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
                 return;
             }
-            Temp.Content = (string)Temp.Content + Put.Content + "÷";
+            Temp.Content = (string)Temp.Content + Put.Text + "÷";
             if (Last != Operator.none)
             {
                 Getresult(Last);
@@ -618,11 +617,12 @@ namespace 计算器
             }
             else
             {
-                Result = Convert.ToDouble(Put.Content);
+                Result = Convert.ToDouble(Put.Text);
                 Last = Operator.chu;
             }
             isbutton = true;
             islastoperator = true;
+            iszeropoint = false;
         }
 
         private void result_Click(object sender, RoutedEventArgs e)
@@ -637,7 +637,7 @@ namespace 计算器
             {
                 MessageBox.Show("请不要在输入运算符后使用 = ,已为你进行前面的运算", "提示", MessageBoxButton.OK);
             }
-            else if (Last == Operator.chu && ((string)Put.Content == "0"))
+            else if (Last == Operator.chu && ((string)Put.Text == "0"))
             {
                 MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
                 return;
@@ -647,11 +647,12 @@ namespace 计算器
             Last = Operator.none;
             islastoperator = false;
             isdengyu = true;
+            iszeropoint = false;
         }
         //ans键
         private void ans_Click(object sender, RoutedEventArgs e)
         {
-            Put.Content = Convert.ToString(Ans);
+            Put.Text = Convert.ToString(Ans);
         }
 
         private void Mod_Click(object sender, RoutedEventArgs e)
@@ -662,12 +663,12 @@ namespace 计算器
                 return;
             }
             else if (islastoperator) return;
-            else if (Last == Operator.chu && ((string)Put.Content == "0"))
+            else if (Last == Operator.chu && ((string)Put.Text == "0"))
             {
                 MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
                 return;
             }
-            Temp.Content = (string)Temp.Content + Put.Content + " mod " ;
+            Temp.Content = (string)Temp.Content + Put.Text + " mod " ;
             if (Last != Operator.none)
             {
                 Getresult(Last);
@@ -675,11 +676,12 @@ namespace 计算器
             }
             else
             {
-                Result = Convert.ToDouble(Put.Content);
+                Result = Convert.ToDouble(Put.Text);
                 Last = Operator.Mod;
             }
             isbutton = true;
             islastoperator = true;
+            iszeropoint = false;
         }
 
         private void xxx_Click(object sender, RoutedEventArgs e)
@@ -689,21 +691,24 @@ namespace 计算器
                 MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
-            Result = Convert.ToDouble(Put.Content);
+            Result = Convert.ToDouble(Put.Text);
             Result = Result * Result;
-            Put.Content = Convert.ToString(Result);
+            Put.Text = Convert.ToString(Result);
+            iszeropoint = false;
         }
 
         private void tan_Click(object sender, RoutedEventArgs e)
         {
+            iszeropoint = false;
             if (isper)
             {
                 MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
-            Result = Convert.ToDouble(Put.Content);
+            Result = Convert.ToDouble(Put.Text);
             Result = Math.Tan(Result);
-            Put.Content = Convert.ToString(Result);
+            Put.Text = Convert.ToString(Result);
+            iszeropoint = false;
         }
 
         private void oneton_Click(object sender, RoutedEventArgs e)
@@ -713,11 +718,12 @@ namespace 计算器
                 MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
-            Result = Convert.ToInt16(Put.Content);
-            int a = Convert.ToInt16(Put.Content);
+            iszeropoint = false;
+            Result = Convert.ToInt16(Put.Text);
+            int a = Convert.ToInt16(Put.Text);
             Result = 1;
             for (int i = 1; i <= a; i++) Result = Result * i;
-            Put.Content = Convert.ToString(Result);
+            Put.Text = Convert.ToString(Result);
         }
 
         private void cos_Click(object sender, RoutedEventArgs e)
@@ -727,9 +733,10 @@ namespace 计算器
                 MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
-            Result = Convert.ToDouble(Put.Content);
+            Result = Convert.ToDouble(Put.Text);
             Result = Math.Cos(Result);
-            Put.Content = Convert.ToString(Result);
+            Put.Text = Convert.ToString(Result);
+            iszeropoint = false;
         }
 
         private void sin_Click(object sender, RoutedEventArgs e)
@@ -739,9 +746,10 @@ namespace 计算器
                 MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
-            Result = Convert.ToDouble(Put.Content);
+            Result = Convert.ToDouble(Put.Text);
             Result = Math.Sin(Result);
-            Put.Content = Convert.ToString(Result);
+            Put.Text = Convert.ToString(Result);
+            iszeropoint = false;
         }
 
         private void xciy_Click(object sender, RoutedEventArgs e)
@@ -752,12 +760,13 @@ namespace 计算器
                 return;
             }
             else if (islastoperator) return;
-            else if (Last == Operator.chu && ((string)Put.Content == "0"))
+            else if (Last == Operator.chu && ((string)Put.Text == "0"))
             {
                 MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
                 return;
             }
-            Temp.Content = (string)Temp.Content + Put.Content + "^";
+            iszeropoint = false;
+            Temp.Content = (string)Temp.Content + Put.Text + "^";
             if (Last != Operator.none)
             {
                 Getresult(Last);
@@ -765,7 +774,7 @@ namespace 计算器
             }
             else
             {
-                Result = Convert.ToDouble(Put.Content);
+                Result = Convert.ToDouble(Put.Text);
                 Last = Operator.cifang;
             }
             isbutton = true;
@@ -779,10 +788,11 @@ namespace 计算器
                 MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
-            if ((string)Put.Content == "0") return;
-            Result = Convert.ToDouble(Put.Content);
+            if ((string)Put.Text == "0") return;
+            Result = Convert.ToDouble(Put.Text);
             Result = Math.Log(Result);
-            Put.Content = Result;
+            Put.Text = Convert.ToString(Result);
+            iszeropoint = false;
         }
 
         private void Sqrt_Click(object sender, RoutedEventArgs e)
@@ -792,9 +802,10 @@ namespace 计算器
                 MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
                 return;
             }
-            Result = Convert.ToDouble(Put.Content);
+            Result = Convert.ToDouble(Put.Text);
             Result = Math.Sqrt(Result);
-            Put.Content = Result;
+            Put.Text = Convert.ToString(Result);
+            iszeropoint = false;
         }
 
         private void pi_Click(object sender, RoutedEventArgs e)
@@ -805,26 +816,27 @@ namespace 计算器
             }
             if (isper)
             {
-                Put.Content = "0";
+                Put.Text = "0";
                 isper = false;
             }
-            else if ((string)Put.Content != "0")
+            else if ((string)Put.Text != "0")
             {
-                Result = cheng_do(Convert.ToDouble(Put.Content), "3.1415926535897932384626433832795");
-                Put.Content = Result;
+                Result = cheng_do(Convert.ToDouble(Put.Text), "3.1415926535897932384626433832795");
+                Put.Text = Convert.ToString(Result);
                 return;
             }
             else if (isbutton)
             {
-                Put.Content = "0";
+                Put.Text = "0";
             }
-            if ((string)Put.Content == "0")
+            if ((string)Put.Text == "0")
             {
-                Put.Content = "3.1415926535897932384626433832795";
+                Put.Text = "3.1415926535897932384626433832795";
                 isbutton = false;
             }
-            else Put.Content += "3.1415926535897932384626433832795";
+            else Put.Text += "3.1415926535897932384626433832795";
             islastoperator = false;
+            iszeropoint = false;
         }
     }
 }
