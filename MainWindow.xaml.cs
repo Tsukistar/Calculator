@@ -33,6 +33,11 @@ namespace 计算器
             {
                 Put.Content = "0.";
             }
+            else if (isdengyu)
+            {
+                Put.Content = "0";
+                isdengyu = false;
+            }
             else Put.Content += ".";
             islastoperator = false;
         }
@@ -44,9 +49,20 @@ namespace 计算器
                 Put.Content = "0";
                 isper = false;
             }
+            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            {
+                Put.Content += "0";
+                islastoperator = false;
+                return;
+            }
             else if (isbutton)
             {
                 Put.Content = "0";
+            }
+            else if (isdengyu)
+            {
+                Put.Content = "0";
+                isdengyu = false;
             }
             if ((string)Put.Content == "0") return;
             else Put.Content += "0";
@@ -60,9 +76,26 @@ namespace 计算器
                 Put.Content = "0";
                 isper = false;
             }
+            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length, ".", 0, 1) == 0)
+            {
+                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                {
+                    Put.Content += "1";
+                    islastoperator = false;
+                    return;
+                }
+                Put.Content += "1";
+                islastoperator = false;
+                return;
+            }
             else if (isbutton)
             {
                 Put.Content = "0";
+            }
+            else if (isdengyu)
+            {
+                Put.Content = "0";
+                isdengyu = false;
             }
             if ((string)Put.Content == "0")
             {
@@ -80,9 +113,26 @@ namespace 计算器
                 Put.Content = "0";
                 isper = false;
             }
+            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            {
+                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                {
+                    Put.Content += "2";
+                    islastoperator = false;
+                    return;
+                }
+                Put.Content += "2";
+                islastoperator = false;
+                return;
+            }
             else if (isbutton)
             {
                 Put.Content = "0";
+            }
+            else if (isdengyu)
+            {
+                Put.Content = "0";
+                isdengyu = false;
             }
             if ((string)Put.Content == "0")
             {
@@ -100,9 +150,26 @@ namespace 计算器
                 Put.Content = "0";
                 isper = false;
             }
+            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            {
+                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                {
+                    Put.Content += "3";
+                    islastoperator = false;
+                    return;
+                }
+                Put.Content += "3";
+                islastoperator = false;
+                return;
+            }
             else if (isbutton)
             {
                 Put.Content = "0";
+            }
+            else if (isdengyu)
+            {
+                Put.Content = "0";
+                isdengyu = false;
             }
             if ((string)Put.Content == "0")
             {
@@ -120,9 +187,26 @@ namespace 计算器
                 Put.Content = "0";
                 isper = false;
             }
+            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            {
+                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                {
+                    Put.Content += "4";
+                    islastoperator = false;
+                    return;
+                }
+                Put.Content += "4";
+                islastoperator = false;
+                return;
+            }
             else if (isbutton)
             {
                 Put.Content = "0";
+            }
+            else if (isdengyu)
+            {
+                Put.Content = "0";
+                isdengyu = false;
             }
             if ((string)Put.Content == "0")
             {
@@ -140,9 +224,26 @@ namespace 计算器
                 Put.Content = "0";
                 isper = false;
             }
+            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            {
+                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                {
+                    Put.Content += "5";
+                    islastoperator = false;
+                    return;
+                }
+                Put.Content += "5";
+                islastoperator = false;
+                return;
+            }
             else if (isbutton)
             {
                 Put.Content = "0";
+            }
+            else if (isdengyu)
+            {
+                Put.Content = "0";
+                isdengyu = false;
             }
             if ((string)Put.Content == "0")
             {
@@ -160,9 +261,26 @@ namespace 计算器
                 Put.Content = "0";
                 isper = false;
             }
+            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            {
+                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                {
+                    Put.Content += "6";
+                    islastoperator = false;
+                    return;
+                }
+                Put.Content += "6";
+                islastoperator = false;
+                return;
+            }
             else if (isbutton)
             {
                 Put.Content = "0";
+            }
+            else if (isdengyu)
+            {
+                Put.Content = "0";
+                isdengyu = false;
             }
             if ((string)Put.Content == "0")
             {
@@ -180,9 +298,26 @@ namespace 计算器
                 Put.Content = "0";
                 isper = false;
             }
+            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            {
+                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                {
+                    Put.Content += "7";
+                    islastoperator = false;
+                    return;
+                }
+                Put.Content += "7";
+                islastoperator = false;
+                return;
+            }
             else if (isbutton)
             {
                 Put.Content = "0";
+            }
+            else if (isdengyu)
+            {
+                Put.Content = "0";
+                isdengyu = false;
             }
             if ((string)Put.Content == "0")
             {
@@ -200,9 +335,26 @@ namespace 计算器
                 Put.Content = "0";
                 isper = false;
             }
+            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            {
+                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                {
+                    Put.Content += "8";
+                    islastoperator = false;
+                    return;
+                }
+                Put.Content += "8";
+                islastoperator = false;
+                return;
+            }
             else if (isbutton)
             {
                 Put.Content = "0";
+            }
+            else if (isdengyu)
+            {
+                Put.Content = "0";
+                isdengyu = false;
             }
             if ((string)Put.Content == "0")
             {
@@ -220,9 +372,26 @@ namespace 计算器
                 Put.Content = "0";
                 isper = false;
             }
+            else if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 1, ".", 0, 1) == 0)
+            {
+                if (string.Compare((string)Put.Content, ((string)Put.Content).Length - 2, "0.", 0, 2) == 0)
+                {
+                    Put.Content += "9";
+                    islastoperator = false;
+                    return;
+                }
+                Put.Content += "9";
+                islastoperator = false;
+                return;
+            }
             else if (isbutton)
             {
                 Put.Content = "0";
+            }
+            else if (isdengyu)
+            {
+                Put.Content = "0";
+                isdengyu=false;
             }
             if ((string)Put.Content == "0")
             {
@@ -237,6 +406,8 @@ namespace 计算器
         /// </summary>
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
+            Ans = Result;
+            Result = 0;
             Temp.Content = "";
             Put.Content = "0";
             isper = false;
@@ -247,8 +418,8 @@ namespace 计算器
 
         private void Del_Click(object sender, RoutedEventArgs e)
         {
-            if (isdengyu) return;
-            else if (isper) isper = false;
+            if (isper) isper = false;
+            else if (isdengyu) return;
             if ((string)Put.Content == "0") return;
             else
             {
@@ -328,6 +499,7 @@ namespace 计算器
                     break;
                 case Operator.Mod:
                     Result = Math.IEEERemainder(Result, Convert.ToDouble(Put.Content));
+                    if (Result < 0) Result += Convert.ToDouble(Put.Content);
                     Ans = Result;
                     Last = Operator.Mod;
                     Put.Content = Result;
@@ -474,6 +646,7 @@ namespace 计算器
             Temp.Content = "";
             Last = Operator.none;
             islastoperator = false;
+            isdengyu = true;
         }
         //ans键
         private void ans_Click(object sender, RoutedEventArgs e)
@@ -494,7 +667,7 @@ namespace 计算器
                 MessageBox.Show("除以0是没有意义的，换个数试试？", "提示", MessageBoxButton.OK);
                 return;
             }
-            Temp.Content = (string)Temp.Content + Put.Content + "×";
+            Temp.Content = (string)Temp.Content + Put.Content + " mod " ;
             if (Last != Operator.none)
             {
                 Getresult(Last);
@@ -511,43 +684,64 @@ namespace 计算器
 
         private void xxx_Click(object sender, RoutedEventArgs e)
         {
-            Temp.Content = Result + "²";
+            if (isper)
+            {
+                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
+                return;
+            }
+            Result = Convert.ToDouble(Put.Content);
             Result = Result * Result;
-            Put.Content = Result;
+            Put.Content = Convert.ToString(Result);
         }
 
         private void tan_Click(object sender, RoutedEventArgs e)
         {
+            if (isper)
+            {
+                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
+                return;
+            }
             Result = Convert.ToDouble(Put.Content);
-            Temp.Content = "tan" + Convert.ToString(Result);
             Result = Math.Tan(Result);
-            Put.Content = Result;
+            Put.Content = Convert.ToString(Result);
         }
 
         private void oneton_Click(object sender, RoutedEventArgs e)
         {
+            if (isper)
+            {
+                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
+                return;
+            }
             Result = Convert.ToInt16(Put.Content);
-            Temp.Content = Result + "!";
             int a = Convert.ToInt16(Put.Content);
             Result = 1;
             for (int i = 1; i <= a; i++) Result = Result * i;
-            Put.Content = Result;
+            Put.Content = Convert.ToString(Result);
         }
 
         private void cos_Click(object sender, RoutedEventArgs e)
         {
+            if (isper)
+            {
+                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
+                return;
+            }
             Result = Convert.ToDouble(Put.Content);
-            Temp.Content = "cos" + Convert.ToString(Result);
             Result = Math.Cos(Result);
-            Put.Content = Result;
+            Put.Content = Convert.ToString(Result);
         }
 
         private void sin_Click(object sender, RoutedEventArgs e)
         {
+            if (isper)
+            {
+                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
+                return;
+            }
             Result = Convert.ToDouble(Put.Content);
-            Temp.Content = "sin" + Convert.ToString(Result);
             Result = Math.Sin(Result);
-            Put.Content = Result;
+            Put.Content = Convert.ToString(Result);
         }
 
         private void xciy_Click(object sender, RoutedEventArgs e)
@@ -580,16 +774,25 @@ namespace 计算器
 
         private void Log_Click(object sender, RoutedEventArgs e)
         {
+            if (isper)
+            {
+                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
+                return;
+            }
+            if ((string)Put.Content == "0") return;
             Result = Convert.ToDouble(Put.Content);
-            Temp.Content = "ln" + Convert.ToString(Result);
             Result = Math.Log(Result);
             Put.Content = Result;
         }
 
         private void Sqrt_Click(object sender, RoutedEventArgs e)
         {
+            if (isper)
+            {
+                MessageBox.Show("请不要在使用%后使用其他运算符，若想进行其他运算，请清零，ans会保存之前的计算结果", "提示", MessageBoxButton.OK);
+                return;
+            }
             Result = Convert.ToDouble(Put.Content);
-            Temp.Content = "√" + Convert.ToString(Result);
             Result = Math.Sqrt(Result);
             Put.Content = Result;
         }
@@ -598,8 +801,18 @@ namespace 计算器
         {
             if (isper)
             {
+                return;
+            }
+            if (isper)
+            {
                 Put.Content = "0";
                 isper = false;
+            }
+            else if ((string)Put.Content != "0")
+            {
+                Result = cheng_do(Convert.ToDouble(Put.Content), "3.1415926535897932384626433832795");
+                Put.Content = Result;
+                return;
             }
             else if (isbutton)
             {
